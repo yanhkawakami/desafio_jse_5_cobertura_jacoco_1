@@ -1,0 +1,26 @@
+meta {
+  name: Score (auth)
+  type: http
+  seq: 1
+}
+
+put {
+  url: {{host}}/scores
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+      "movieId": 1,
+      "score": 4
+  }
+}
+
+settings {
+  encodeUrl: true
+}

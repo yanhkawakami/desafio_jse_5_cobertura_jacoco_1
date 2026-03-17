@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Desafio DSMovie Jacoco",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

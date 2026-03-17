@@ -1,0 +1,28 @@
+meta {
+  name: Update Movie (admin)
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{host}}/movies/30
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+      "title": "Test Movie II",
+      "score": 0.0,
+      "count": 0,
+      "image": "https://www.themoviedb.org/t/p/w533_and_h300_bestv2/jBJWaqoSCiARWtfV0GlqHrcdidd.jpg"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,39 @@
+meta {
+  name: Login
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{host}}/oauth2/token
+  body: formUrlEncoded
+  auth: basic
+}
+
+auth:basic {
+  username: {{client-id}}
+  password: {{client-secret}}
+}
+
+body:form-urlencoded {
+  username: {{username}}
+  password: {{password}}
+  grant_type: password
+}
+
+script:post-response {
+  // Pega o corpo da resposta
+  const body = res.getBody();
+  
+  // Verifica se o token existe (ajuste 'access_token' conforme sua API: ex: 'token', 'jwt', etc)
+  if (body && body.access_token) {
+      // Define uma variável de coleção/ambiente chamada 'authToken'
+      bru.setVar("token", body.access_token);
+      
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

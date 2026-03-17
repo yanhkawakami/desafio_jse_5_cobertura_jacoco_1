@@ -1,0 +1,19 @@
+meta {
+  name: Movies (public)
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{host}}/movies
+  body: none
+  auth: none
+}
+
+headers {
+  ~Origin: http://lalala.com
+}
+
+settings {
+  encodeUrl: true
+}

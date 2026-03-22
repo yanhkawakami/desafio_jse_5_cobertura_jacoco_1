@@ -56,7 +56,6 @@ public class MovieServiceTests {
 
         Mockito.when(repository.searchByTitle(movieEntity.getTitle(), pageable)).thenReturn(movieEntityPage);
         Mockito.when(repository.findById(existingMovieId)).thenReturn(Optional.ofNullable(movieEntity));
-        Mockito.when(repository.findById(nonExistingMovieId)).thenThrow(ResourceNotFoundException.class);
 
         Mockito.when(repository.save(ArgumentMatchers.any())).thenReturn(movieEntity);
 
